@@ -1,17 +1,14 @@
 //your code here
-let arr=[
-	"The Virupaksha Temple",
-	"Victoria Memorial",
-	"Tajmahal",
-];
+let arr=["The Virupaksha Temple","Victoria Memorial","Tajmahal"];
 let articleLessArray=[];
 
 let mp={};
+let regexp=/\bthe\b|\ban\b|\ba\b/gi;
 
 for(let i=0;i<arr.length;i++){
-	let articleLessItem=arr[i].replace(regexp,"").trim();
-	articleLessArray.push(articleLessItem);
-	mp[articleLessItem]=arr[i];
+	let temp=arr[i].replace(regexp,"").trim();
+	articleLessArray.push(temp);
+	mp[temp]=arr[i];
 }
 articleLessArray.sort();
 
