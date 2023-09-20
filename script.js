@@ -1,24 +1,19 @@
-let arr = ['The Virupaksha Temple', 'Victoria Memorial', 'Tajmahal'];
-let articleLessArray = [];
+//your code here
+let arr=["The Virupaksha Temple","Victoria Memorial","Tajmahal"];
+let articleLessArray=[];
 
-let regexp = /\b(the|an|a)\b/gi;
+let mp=[];
+let regexp=/\bthe\b|\ban\b|\ba\b/gi;
 
-for (let i = 0; i < arr.length; i++) {
-    // Remove articles and trim whitespace
-    let temp = arr[i].replace(regexp, '').trim();
-    articleLessArray.push(temp);
+for(let i=0;i<arr.length;i++){
+	let temp=arr[i].replace(regexp,"").trim();
+	articleLessArray.push(temp);
+	mp[temp]=arr[i]; 
 }
-
-let mapping = {};
-for (let i = 0; i < arr.length; i++) {
-    mapping[articleLessArray[i]] = arr[i];
-}
-
 articleLessArray.sort();
 
-let ul = document.getElementById('band');
-articleLessArray.forEach(function (name) {
-    let li = document.createElement('li');
-    li.textContent = mapping[name];
-    ul.appendChild(li);
-});
+let ans=[];
+for(let i of articleLessArray){
+	ans.push(mp[i]);
+}
+console.log(ans);
